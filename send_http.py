@@ -81,8 +81,11 @@ def parse_http_test(http_path,data_path='',encoding='utf-8',assert_fn=_assert):
     httpTemplate = open(http_path,encoding=encoding).read()
     data = _parse_attached_file(data_path)
 
-    for i in data['data']:
-        yield HttpTest(httpTemplate,i,assert_fn)
+    if data['data']:
+        for i in data['data']:
+            yield HttpTest(httpTemplate,i,assert_fn)
+    else:
+        yield HttpTest(httpTemplate,{},assert_fn)
 
 
 
