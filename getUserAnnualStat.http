@@ -1,0 +1,5 @@
+POST http://api.dev.yitong.com/yswx/gw/app/getUserAnnualStat
+Content-Type: application/json;charset=utf-8
+Authorization: Bearer eyJhbGciOiJFUzI1NiJ9.eyJpc3MiOiJ5aXRvbmcuY29tIiwic3ViIjoiMTAxODEwIiwiYXVkIjoiY2UyNDE5NTUxYjhiNDU1ZWJkOWZjZmEzMTAxZTM0NDQiLCJpYXQiOjE1NzQxNTE0NzQsImV4cCI6MTY2ODc1OTQ3NH0.c-9rjHd3ESplLY_s6HSdNJN6eCVG24OWbB1qgh3n3Ho7UCJmI5hPD4GGJpupxk3PMjUmtjIH5UAegxu3zx5TYQ
+
+
