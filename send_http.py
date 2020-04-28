@@ -108,17 +108,5 @@ if __name__ == '__main__':
 
 
 
-    # http_str = open(p).read()
-    # ht = HttpTest(http_str,{'id':'101689'},_assert)
-    # ht.run()
-    # print(ht.is_pass)
-    # print(ht.response.json())
-
-    # m = SendHttp(p)
-    # s = m.send()
-    # for i in s:
-    #     print(i)
-
-
 
     
