@@ -57,7 +57,7 @@ def _parse_attached_file(data_path):
 
     split_file = data_path.split('.')
     if len(split_file)<2:
-        raise Exception("无法识别附加文件%s" % path)
+        raise Exception("无法识别附加文件%s" % data_path)
 
     file_class = split_file[-1]
     if file_class == 'csv':
@@ -85,14 +85,6 @@ def parse_http_test(http_path,data_path='',encoding='utf-8',assert_fn=_assert):
         yield HttpTest(httpTemplate,i,assert_fn)
 
 
-    
-
-
-
-
-
-
-
 
 
 
@@ -100,7 +92,9 @@ if __name__ == '__main__':
     import os
     from pprint import pprint
     #同目录下存在同名的csv文件
-    p = r'E:\auto_generate_Jmx\http\app\test.http'
+    dir_path = os.path.dirname(os.path.abspath(__file__))
+    p = os.path.join(dir_path,r'app\test.http')
+    # p = r'E:\auto_generate_Jmx\http\app\test.http'
     for httptest in parse_http_test(p):
         httptest.run()
         if httptest.is_pass:

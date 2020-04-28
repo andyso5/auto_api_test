@@ -42,7 +42,7 @@ class HttpParse():
 
             self.res['method'], self.res['url'], *_ = line_info
         else:
-            print('文件:%s\n内容为空\n' % self.http_path) 
+            print('解析内容为空\n') 
             self.is_empty = True
 
 
@@ -63,7 +63,7 @@ class HttpParse():
             pair = line.split(':')
             self.res['headers'][pair[0].strip()] = pair[1].strip()
         else:
-            print('文件:%s\n请求头出现格式错误\n' % self.http_path)
+            print('请求头出现格式错误\n')
             self.res['error'] = True
             
 
@@ -85,7 +85,7 @@ class HttpParse():
         try:
             self.parse_request_line()
         except AttributeError:
-            raise Exception("%s文件中存在变量，不予解析" % self.http_path)
+            raise Exception("存在变量，不予解析")
 
         if self.is_empty:
             pass
@@ -102,7 +102,7 @@ class HttpParse():
     def parse(self,data={}):
         if self.var:
             if (not data):
-                raise Exception("%s中存在变量，解析需要加载变量数据，参数data不能为空" % self.http_path)
+                raise Exception("解析文本中存在变量，解析需要加载变量数据，参数data不能为空")
             else:
                 return self._parse_with_data(data)
 
@@ -130,20 +130,6 @@ class HttpParse():
 
 
 
-if __name__ == '__main__':
-    import os
-    from pprint import pprint
-    "无变量测试"
-    # path = r'E:\xiaoao\yswx-api-gateway.git\test\page'
-    # one_path = r'E:\xiaoao\yswx-api-gateway.git\test\page\getHomeData.http'
-    # for i in os.listdir(path):
-    #     p = os.path.join(path,i)
-    #     print(p)
-    #     print(HttpParse(p).parse())
-    "有变量测试"
-    p = r'app\test.http'
-    # print(os.path.exists(p))
-    pprint(HttpParse(p).parse({'id':'101689'}))
 
 
 
